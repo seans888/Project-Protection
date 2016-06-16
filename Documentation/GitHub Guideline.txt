@@ -1,0 +1,22 @@
+How to upload Repository
+
+sample-project:
+Structure:1) Documentation
+	  2) Database
+	  3) Application
+
+1.) Cloning
+	1.) Copy git URL
+	2.) D:/ or Even USB; right click mouse: gt clone
+
+2.) Git Repository
+	1.) Create your porject folder
+	2.) Right click mouse, Create repository
+3.) Create Documentation / Database
+	folder
+
+two
+ways
+1:) locally Create a folder, put a file in the folder, then go to tortoise git 
+ -> Add, then commit
+Add Message; press ok, push
