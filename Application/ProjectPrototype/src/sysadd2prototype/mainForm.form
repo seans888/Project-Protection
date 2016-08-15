@@ -24,7 +24,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="372" max="32767" attributes="0"/>
+              <EmptySpace pref="382" max="32767" attributes="0"/>
               <Component id="jLogout" min="-2" pref="102" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>

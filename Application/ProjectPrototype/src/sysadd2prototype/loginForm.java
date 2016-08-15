@@ -78,7 +78,7 @@ public class loginForm extends javax.swing.JDialog {
 
         jIcon.setIcon(new javax.swing.ImageIcon("C:\\Users\\Letty\\Desktop\\logo.png")); // NOI18N
         jPanel1.add(jIcon);
-        jIcon.setBounds(10, 0, 210, 210);
+        jIcon.setBounds(10, 0, 220, 210);
 
         jUsername.setText("Username");
 
