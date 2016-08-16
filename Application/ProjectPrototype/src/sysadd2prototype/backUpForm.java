@@ -33,10 +33,9 @@ public class backUpForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jWord = new javax.swing.JButton();
-        jPDF = new javax.swing.JButton();
         jNotepad = new javax.swing.JButton();
         jExcel = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jPowerpoint = new javax.swing.JButton();
         jNotepad2 = new javax.swing.JButton();
         jExit = new javax.swing.JButton();
 
@@ -49,15 +48,33 @@ public class backUpForm extends javax.swing.JFrame {
             }
         });
 
-        jPDF.setText("PDF");
-
         jNotepad.setText("Notepad");
+        jNotepad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jNotepadActionPerformed(evt);
+            }
+        });
 
         jExcel.setText("Excel");
+        jExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jExcelActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("Powerpoint");
+        jPowerpoint.setText("Powerpoint");
+        jPowerpoint.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jPowerpointActionPerformed(evt);
+            }
+        });
 
         jNotepad2.setText("Notepad++");
+        jNotepad2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jNotepad2ActionPerformed(evt);
+            }
+        });
 
         jExit.setText("Exit");
         jExit.addActionListener(new java.awt.event.ActionListener() {
@@ -71,27 +88,24 @@ public class backUpForm extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(61, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jExit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(49, 49, 49)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jWord)
-                            .addComponent(jExcel))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(48, 48, 48)
-                                .addComponent(jPDF)
-                                .addGap(39, 39, 39)
-                                .addComponent(jNotepad))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(jButton1)
-                                .addGap(18, 18, 18)
-                                .addComponent(jNotepad2)))
-                        .addGap(47, 47, 47))
+                        .addComponent(jWord)
+                        .addGap(32, 32, 32)
+                        .addComponent(jPowerpoint)
+                        .addGap(34, 34, 34)
+                        .addComponent(jExcel))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jExit, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(30, 30, 30))))
+                        .addComponent(jNotepad)
+                        .addGap(44, 44, 44)
+                        .addComponent(jNotepad2)
+                        .addGap(36, 36, 36)))
+                .addContainerGap(68, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,13 +113,12 @@ public class backUpForm extends javax.swing.JFrame {
                 .addGap(96, 96, 96)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jWord)
-                    .addComponent(jPDF)
-                    .addComponent(jNotepad))
+                    .addComponent(jPowerpoint)
+                    .addComponent(jExcel))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jExcel)
-                    .addComponent(jButton1)
-                    .addComponent(jNotepad2))
+                    .addComponent(jNotepad2)
+                    .addComponent(jNotepad))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
                 .addComponent(jExit)
                 .addGap(18, 18, 18))
@@ -116,18 +129,53 @@ public class backUpForm extends javax.swing.JFrame {
 
     private void jWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jWordActionPerformed
          try {
-            // TODO add your handling code here:
-            Process process;
-            process = Runtime.getRuntime().exec("cmd.exe /C start WINWORD.EXE" );
+            Process wordProcess;
+            wordProcess = Runtime.getRuntime().exec("cmd.exe /C start WINWORD.EXE" );
         } catch (IOException ex) {
             Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:
+        }        
     }//GEN-LAST:event_jWordActionPerformed
 
     private void jExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExitActionPerformed
         this.dispose();
         new mainForm().setVisible(true);
     }//GEN-LAST:event_jExitActionPerformed
+
+    private void jNotepad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNotepad2ActionPerformed
+        try {
+            Process notepad2Process;
+            notepad2Process = Runtime.getRuntime().exec("cmd.exe /C start notepad++.exe" );
+        } catch (IOException ex) {
+            Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }     
+    }//GEN-LAST:event_jNotepad2ActionPerformed
+
+    private void jNotepadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jNotepadActionPerformed
+       try {
+            Process notepadProcess;
+            notepadProcess = Runtime.getRuntime().exec("cmd.exe /C start notepad.exe" );
+        } catch (IOException ex) {
+            Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }//GEN-LAST:event_jNotepadActionPerformed
+
+    private void jPowerpointActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPowerpointActionPerformed
+     try {
+            Process powerpntProcess;
+            powerpntProcess = Runtime.getRuntime().exec("cmd.exe /C start POWERPNT.EXE" );
+        } catch (IOException ex) {
+            Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }        
+    }//GEN-LAST:event_jPowerpointActionPerformed
+
+    private void jExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jExcelActionPerformed
+        try {
+            Process excelProcess;
+            excelProcess = Runtime.getRuntime().exec("cmd.exe /C start EXCEL.EXE" );
+        } catch (IOException ex) {
+            Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+    }//GEN-LAST:event_jExcelActionPerformed
 
     /**
      * @param args the command line arguments
@@ -163,12 +211,11 @@ public class backUpForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jExcel;
     private javax.swing.JButton jExit;
     private javax.swing.JButton jNotepad;
     private javax.swing.JButton jNotepad2;
-    private javax.swing.JButton jPDF;
+    private javax.swing.JButton jPowerpoint;
     private javax.swing.JButton jWord;
     // End of variables declaration//GEN-END:variables
 }
