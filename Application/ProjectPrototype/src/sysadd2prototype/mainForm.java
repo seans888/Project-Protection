@@ -171,13 +171,8 @@ public class mainForm extends javax.swing.JFrame {
     }//GEN-LAST:event_jLogoutActionPerformed
 
     private void jBackUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBackUpActionPerformed
-        try {
-            // TODO add your handling code here:
-            Process process;
-            process = Runtime.getRuntime().exec("cmd.exe /C start WINWORD.EXE" );
-        } catch (IOException ex) {
-            Logger.getLogger(mainForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        this.dispose();
+        new backUpForm().setVisible(true);
 
     }//GEN-LAST:event_jBackUpActionPerformed
 
@@ -197,7 +192,7 @@ public class mainForm extends javax.swing.JFrame {
                String fname = f.getAbsolutePath();
                jSourceF.setText(fname);
               } else {
-                  System.out.println("File access cancelled by user.");
+                  System.out.println("Directory access cancelled by user.");
               }
     }//GEN-LAST:event_jSourceActionPerformed
 
@@ -213,7 +208,7 @@ public class mainForm extends javax.swing.JFrame {
                String fname = f.getAbsolutePath();
                jDestF.setText(fname);
               } else {
-                  System.out.println("File access cancelled by user.");
+                  System.out.println("Diretory access cancelled by user.");
               }
     }//GEN-LAST:event_jDestActionPerformed
 
