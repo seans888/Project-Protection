@@ -5,9 +5,12 @@
  */
 package sysadd2prototype;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 /**
  *
@@ -38,6 +41,10 @@ public class mainForm extends javax.swing.JFrame {
         jRetrive = new javax.swing.JButton();
         jLogs = new javax.swing.JButton();
         jMemCheck = new javax.swing.JButton();
+        jSourceF = new javax.swing.JTextField();
+        jSource = new javax.swing.JButton();
+        jDestF = new javax.swing.JTextField();
+        jDest = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -58,51 +65,99 @@ public class mainForm extends javax.swing.JFrame {
         });
 
         jRetrive.setText("Retrieve");
+        jRetrive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRetriveActionPerformed(evt);
+            }
+        });
 
         jLogs.setText("Logs");
 
         jMemCheck.setText("Memory Check");
 
+        jSource.setText("Source");
+        jSource.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jSourceActionPerformed(evt);
+            }
+        });
+
+        jDest.setText("Destination");
+        jDest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jDestActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(382, Short.MAX_VALUE)
-                .addComponent(jLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(377, Short.MAX_VALUE)
+                        .addComponent(jLogout, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jDestF, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                            .addComponent(jSourceF))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSource)
+                            .addComponent(jDest))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(61, 61, 61)
+                .addGap(83, 83, 83)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jDocu)
+                    .addComponent(jMemCheck))
+                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jBackUp)
                     .addComponent(jRetrive)
-                    .addComponent(jLogs)
-                    .addComponent(jDocu)
-                    .addComponent(jMemCheck))
+                    .addComponent(jLogs))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jBackUp, jDocu, jLogs, jMemCheck, jRetrive});
 
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {jDest, jSource});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addComponent(jMemCheck)
-                .addGap(18, 18, 18)
-                .addComponent(jDocu)
-                .addGap(18, 18, 18)
-                .addComponent(jBackUp, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jRetrive, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jSourceF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSource))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jDestF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jDest))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jBackUp, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jRetrive, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLogs, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jMemCheck)
+                        .addGap(18, 18, 18)
+                        .addComponent(jDocu)
+                        .addGap(28, 28, 28)))
+                .addGap(34, 34, 34)
                 .addComponent(jLogout)
                 .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jBackUp, jDocu, jLogs, jMemCheck, jRetrive});
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jDest, jSource});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -125,6 +180,42 @@ public class mainForm extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_jBackUpActionPerformed
+
+    private void jRetriveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRetriveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRetriveActionPerformed
+
+    private void jSourceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jSourceActionPerformed
+               JFileChooser FChooser = new JFileChooser();
+               FChooser.setCurrentDirectory(new java.io.File("."));
+               FChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+               FChooser.setAcceptAllFileFilterUsed(false);
+               
+              int FChooserVal = FChooser.showOpenDialog(this);
+              if (JFileChooser.APPROVE_OPTION == FChooserVal){
+                File f = FChooser.getCurrentDirectory();
+               String fname = f.getAbsolutePath();
+               jSourceF.setText(fname);
+              } else {
+                  System.out.println("File access cancelled by user.");
+              }
+    }//GEN-LAST:event_jSourceActionPerformed
+
+    private void jDestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jDestActionPerformed
+         JFileChooser FChooser = new JFileChooser();
+               FChooser.setCurrentDirectory(new java.io.File("."));
+               FChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+               FChooser.setAcceptAllFileFilterUsed(false);
+               
+              int FChooserVal = FChooser.showOpenDialog(this);
+              if (JFileChooser.APPROVE_OPTION == FChooserVal){
+                File f = FChooser.getCurrentDirectory();
+               String fname = f.getAbsolutePath();
+               jDestF.setText(fname);
+              } else {
+                  System.out.println("File access cancelled by user.");
+              }
+    }//GEN-LAST:event_jDestActionPerformed
 
     /**
      * @param args the command line arguments
@@ -157,10 +248,14 @@ public class mainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBackUp;
+    private javax.swing.JButton jDest;
+    private javax.swing.JTextField jDestF;
     private javax.swing.JButton jDocu;
     private javax.swing.JButton jLogout;
     private javax.swing.JButton jLogs;
     private javax.swing.JButton jMemCheck;
     private javax.swing.JButton jRetrive;
+    private javax.swing.JButton jSource;
+    private javax.swing.JTextField jSourceF;
     // End of variables declaration//GEN-END:variables
 }
