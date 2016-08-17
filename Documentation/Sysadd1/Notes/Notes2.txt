@@ -1,0 +1,30 @@
+Notes:
+*Use 6x6
+
+
+Project Context:
+Purpose and Description:
+Objective:
+	Gen: 
+		This project aims to create a real-time back-up , mobile, and seamless .
+	Spec: 
+Scope and Limitations:
+	*hard specs of USB
+	*Optimal performance
+	*Limited until 90% of the storage of the USB
+Related Literature:
+Related Work:
+	*Back-up softwares, Open source
+	*Give the article name 
+Technical Background:
+	*Innovation of the work
+	*it should be significant
+Prototype:
+	*Synchronization
+	*What time of back-up? : Incremental back-up
+	*What type of RAID? : RAID 1
+	*Naming ConventionLUse timestamp/ 1st 3words
+	*Retrieve: Forensics
+	*
+	
+	

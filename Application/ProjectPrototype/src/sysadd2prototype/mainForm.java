@@ -31,6 +31,7 @@ public class mainForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         jLogout = new javax.swing.JButton();
         jDocu = new javax.swing.JButton();
         jBackUp = new javax.swing.JButton();
@@ -41,6 +42,9 @@ public class mainForm extends javax.swing.JFrame {
         jSource = new javax.swing.JButton();
         jDestF = new javax.swing.JTextField();
         jDest = new javax.swing.JButton();
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -239,6 +243,7 @@ public class mainForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBackUp;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JButton jDest;
     private javax.swing.JTextField jDestF;
     private javax.swing.JButton jDocu;
