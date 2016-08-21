@@ -15,8 +15,8 @@ public class Sysadd2Prototype {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        new loginForm (null, true).show();
+      
+// TODO code application logic here
     }
     
 }
