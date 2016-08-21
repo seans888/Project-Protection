@@ -6,6 +6,7 @@
 package sysadd2prototype;
 
 import sysadd2prototype.ToolMenu.BackUpFrame;
+import sysadd2prototype.ToolMenu.DocumentFrame;
 
 /**
  *
@@ -30,13 +31,17 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem1 = new javax.swing.JMenuItem();
         Desktop = new javax.swing.JDesktopPane();
         MenuBar = new javax.swing.JMenuBar();
         FileMenu = new javax.swing.JMenu();
+        FDocu = new javax.swing.JMenuItem();
         FExit = new javax.swing.JMenuItem();
         ToolsMenu = new javax.swing.JMenu();
         TBackUp = new javax.swing.JMenuItem();
         AboutMenu = new javax.swing.JMenu();
+
+        jMenuItem1.setText("jMenuItem1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -52,6 +57,14 @@ public class MainFrame extends javax.swing.JFrame {
         );
 
         FileMenu.setText("File");
+
+        FDocu.setText("Documents");
+        FDocu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FDocuActionPerformed(evt);
+            }
+        });
+        FileMenu.add(FDocu);
 
         FExit.setText("Exit");
         FExit.addActionListener(new java.awt.event.ActionListener() {
@@ -99,11 +112,17 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_FExitActionPerformed
 
     private void TBackUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TBackUpActionPerformed
-        BackUpFrame backupF = new BackUpFrame();
+        BackUpFrame backupF = new  BackUpFrame ();
         Desktop.add(backupF);
         backupF.setVisible(true);
         
     }//GEN-LAST:event_TBackUpActionPerformed
+
+    private void FDocuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FDocuActionPerformed
+        DocumentFrame docF = new DocumentFrame();
+        Desktop.add(docF);
+        docF.setVisible(true);
+    }//GEN-LAST:event_FDocuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,10 +156,12 @@ public class MainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu AboutMenu;
     private javax.swing.JDesktopPane Desktop;
+    private javax.swing.JMenuItem FDocu;
     private javax.swing.JMenuItem FExit;
     private javax.swing.JMenu FileMenu;
     private javax.swing.JMenuBar MenuBar;
     private javax.swing.JMenuItem TBackUp;
     private javax.swing.JMenu ToolsMenu;
+    private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 }

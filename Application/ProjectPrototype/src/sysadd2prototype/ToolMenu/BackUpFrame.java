@@ -5,7 +5,9 @@
  */
 package sysadd2prototype.ToolMenu;
 
-import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,12 +19,7 @@ public class BackUpFrame extends javax.swing.JInternalFrame {
      * Creates new form BackUpFrame
      */
     public BackUpFrame() {
-        
         initComponents();
-    }
-
-    public BackUpFrame(String string, boolean b, boolean b0, boolean b1, boolean b2) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     /**
@@ -34,52 +31,163 @@ public class BackUpFrame extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BUScroll = new javax.swing.JScrollPane();
-        BUTreeFile = new javax.swing.JTree();
-        BUDisplay = new javax.swing.JPanel();
+        btnWord = new javax.swing.JButton();
+        btnNotepad = new javax.swing.JButton();
+        btnNotepad2 = new javax.swing.JButton();
+        btnExcel = new javax.swing.JButton();
+        btnWordPad = new javax.swing.JButton();
+        btnPowerpnt = new javax.swing.JButton();
 
         setClosable(true);
         setIconifiable(true);
         setMaximizable(true);
-        setResizable(true);
+        setTitle("Back Up ");
 
-        BUTreeFile.setModel(new BUTreeFile(new File("C:\\Users\\Letty\\Desktop\\Sysadd1\\Status Reports")));
-        BUScroll.setViewportView(BUTreeFile);
+        btnWord.setText("MS Word");
+        btnWord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWordActionPerformed(evt);
+            }
+        });
 
-        javax.swing.GroupLayout BUDisplayLayout = new javax.swing.GroupLayout(BUDisplay);
-        BUDisplay.setLayout(BUDisplayLayout);
-        BUDisplayLayout.setHorizontalGroup(
-            BUDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 443, Short.MAX_VALUE)
-        );
-        BUDisplayLayout.setVerticalGroup(
-            BUDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 338, Short.MAX_VALUE)
-        );
+        btnNotepad.setText("Notepad");
+        btnNotepad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNotepadActionPerformed(evt);
+            }
+        });
+
+        btnNotepad2.setText("Notepad++");
+        btnNotepad2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNotepad2ActionPerformed(evt);
+            }
+        });
+
+        btnExcel.setText("MS Excel");
+        btnExcel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExcelActionPerformed(evt);
+            }
+        });
+
+        btnWordPad.setText("WordPad");
+        btnWordPad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnWordPadActionPerformed(evt);
+            }
+        });
+
+        btnPowerpnt.setText("MS Powerpoint");
+        btnPowerpnt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPowerpntActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(BUScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BUDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnWordPad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNotepad, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnExcel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnWord, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                    .addComponent(btnNotepad2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnPowerpnt, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(367, Short.MAX_VALUE))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnNotepad, btnNotepad2, btnWord});
+
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BUScroll, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-            .addComponent(BUDisplay, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(btnWord, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnPowerpnt)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnExcel)
+                .addGap(19, 19, 19)
+                .addComponent(btnNotepad)
+                .addGap(18, 18, 18)
+                .addComponent(btnNotepad2)
+                .addGap(18, 18, 18)
+                .addComponent(btnWordPad)
+                .addGap(32, 32, 32))
         );
+
+        layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnNotepad, btnNotepad2, btnWord});
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcelActionPerformed
+        Process process;
+        try {
+            process = Runtime.getRuntime().exec("cmd.exe /C start EXCEL.EXE" );
+        } catch (IOException ex) {
+            Logger.getLogger(BackUpFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnExcelActionPerformed
+
+    private void btnPowerpntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPowerpntActionPerformed
+         Process process;
+        try {
+            process = Runtime.getRuntime().exec("cmd.exe /C start POWERPNT.EXE" );
+        } catch (IOException ex) {
+            Logger.getLogger(BackUpFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnPowerpntActionPerformed
+
+    private void btnWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWordActionPerformed
+            Process process;
+        try {
+            process = Runtime.getRuntime().exec("cmd.exe /C start WINWORD.EXE" );
+        } catch (IOException ex) {
+            Logger.getLogger(BackUpFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+          
+    }//GEN-LAST:event_btnWordActionPerformed
+
+    private void btnNotepad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotepad2ActionPerformed
+        Process process;
+        try {
+            process = Runtime.getRuntime().exec("cmd.exe /C start notepad++.EXE" );
+        } catch (IOException ex) {
+            Logger.getLogger(BackUpFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnNotepad2ActionPerformed
+
+    private void btnNotepadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotepadActionPerformed
+        Process process;
+        try {
+            process = Runtime.getRuntime().exec("cmd.exe /C start notepad.EXE" );
+        } catch (IOException ex) {
+            Logger.getLogger(BackUpFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnNotepadActionPerformed
+
+    private void btnWordPadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWordPadActionPerformed
+         Process process;
+        try {
+            process = Runtime.getRuntime().exec("cmd.exe /C start wordpad.EXE" );
+        } catch (IOException ex) {
+            Logger.getLogger(BackUpFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnWordPadActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel BUDisplay;
-    private javax.swing.JScrollPane BUScroll;
-    private javax.swing.JTree BUTreeFile;
+    private javax.swing.JButton btnExcel;
+    private javax.swing.JButton btnNotepad;
+    private javax.swing.JButton btnNotepad2;
+    private javax.swing.JButton btnPowerpnt;
+    private javax.swing.JButton btnWord;
+    private javax.swing.JButton btnWordPad;
     // End of variables declaration//GEN-END:variables
 }
