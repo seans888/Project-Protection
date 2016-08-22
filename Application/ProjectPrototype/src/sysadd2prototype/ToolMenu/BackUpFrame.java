@@ -37,6 +37,8 @@ public class BackUpFrame extends javax.swing.JInternalFrame {
         btnExcel = new javax.swing.JButton();
         btnWordPad = new javax.swing.JButton();
         btnPowerpnt = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTree1 = new javax.swing.JTree();
 
         setClosable(true);
         setIconifiable(true);
@@ -84,6 +86,8 @@ public class BackUpFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        jScrollPane1.setViewportView(jTree1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,7 +101,9 @@ public class BackUpFrame extends javax.swing.JInternalFrame {
                     .addComponent(btnWord, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
                     .addComponent(btnNotepad2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnPowerpnt, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(367, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 343, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         layout.linkSize(javax.swing.SwingConstants.HORIZONTAL, new java.awt.Component[] {btnNotepad, btnNotepad2, btnWord});
@@ -111,13 +117,17 @@ public class BackUpFrame extends javax.swing.JInternalFrame {
                 .addComponent(btnPowerpnt)
                 .addGap(18, 18, 18)
                 .addComponent(btnExcel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
                 .addComponent(btnNotepad)
                 .addGap(18, 18, 18)
                 .addComponent(btnNotepad2)
                 .addGap(18, 18, 18)
                 .addComponent(btnWordPad)
                 .addGap(32, 32, 32))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnNotepad, btnNotepad2, btnWord});
@@ -188,5 +198,7 @@ public class BackUpFrame extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnPowerpnt;
     private javax.swing.JButton btnWord;
     private javax.swing.JButton btnWordPad;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTree jTree1;
     // End of variables declaration//GEN-END:variables
 }

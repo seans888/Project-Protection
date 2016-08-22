@@ -5,7 +5,12 @@
  */
 package sysadd2prototype;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import sysadd2prototype.ToolMenu.BackUpFrame;
+import sysadd2prototype.ToolMenu.DocTreeFile;
 import sysadd2prototype.ToolMenu.DocumentFrame;
 
 /**
@@ -31,30 +36,76 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem1 = new javax.swing.JMenuItem();
         Desktop = new javax.swing.JDesktopPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        FileTree = new javax.swing.JTree();
+        btnBackUp = new javax.swing.JButton();
+        btnRetrieve = new javax.swing.JButton();
+        btnScan = new javax.swing.JButton();
+        btnFileScan = new javax.swing.JButton();
         MenuBar = new javax.swing.JMenuBar();
         FileMenu = new javax.swing.JMenu();
         FDocu = new javax.swing.JMenuItem();
         FExit = new javax.swing.JMenuItem();
-        ToolsMenu = new javax.swing.JMenu();
-        TBackUp = new javax.swing.JMenuItem();
+        LogMenu = new javax.swing.JMenu();
+        LView = new javax.swing.JMenuItem();
+        LDownload = new javax.swing.JMenuItem();
         AboutMenu = new javax.swing.JMenu();
 
-        jMenuItem1.setText("jMenuItem1");
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        DocTreeFile.setModel(new DocTreeFile(new File ("C:\\Users\\Letty\\Desktop\\Github\\Project-Protection")));
+        jScrollPane1.setViewportView(FileTree);
+
+        btnBackUp.setText("Back Up");
+
+        btnRetrieve.setText("Retrieve");
+
+        btnScan.setText("Memory Scan");
+
+        btnFileScan.setText("File Scan");
+
+        Desktop.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Desktop.setLayer(btnBackUp, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Desktop.setLayer(btnRetrieve, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Desktop.setLayer(btnScan, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Desktop.setLayer(btnFileScan, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout DesktopLayout = new javax.swing.GroupLayout(Desktop);
         Desktop.setLayout(DesktopLayout);
         DesktopLayout.setHorizontalGroup(
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 570, Short.MAX_VALUE)
+            .addGroup(DesktopLayout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addGroup(DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnScan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnFileScan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnBackUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnRetrieve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
+                .addGap(18, 18, 18))
         );
         DesktopLayout.setVerticalGroup(
             DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 371, Short.MAX_VALUE)
+            .addGroup(DesktopLayout.createSequentialGroup()
+                .addGroup(DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(DesktopLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(DesktopLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addComponent(btnScan)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnFileScan)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBackUp)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnRetrieve)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
+
+        DesktopLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBackUp, btnRetrieve});
 
         FileMenu.setText("File");
 
@@ -76,17 +127,15 @@ public class MainFrame extends javax.swing.JFrame {
 
         MenuBar.add(FileMenu);
 
-        ToolsMenu.setText("Tools");
+        LogMenu.setText("Logs");
 
-        TBackUp.setText("Back-Up ");
-        TBackUp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TBackUpActionPerformed(evt);
-            }
-        });
-        ToolsMenu.add(TBackUp);
+        LView.setText("View");
+        LogMenu.add(LView);
 
-        MenuBar.add(ToolsMenu);
+        LDownload.setText("Download");
+        LogMenu.add(LDownload);
+
+        MenuBar.add(LogMenu);
 
         AboutMenu.setText("About");
         MenuBar.add(AboutMenu);
@@ -110,13 +159,6 @@ public class MainFrame extends javax.swing.JFrame {
     private void FExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FExitActionPerformed
       System.exit(0);
     }//GEN-LAST:event_FExitActionPerformed
-
-    private void TBackUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TBackUpActionPerformed
-        BackUpFrame backupF = new  BackUpFrame ();
-        Desktop.add(backupF);
-        backupF.setVisible(true);
-        
-    }//GEN-LAST:event_TBackUpActionPerformed
 
     private void FDocuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FDocuActionPerformed
         DocumentFrame docF = new DocumentFrame();
@@ -159,9 +201,15 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem FDocu;
     private javax.swing.JMenuItem FExit;
     private javax.swing.JMenu FileMenu;
+    private javax.swing.JTree FileTree;
+    private javax.swing.JMenuItem LDownload;
+    private javax.swing.JMenuItem LView;
+    private javax.swing.JMenu LogMenu;
     private javax.swing.JMenuBar MenuBar;
-    private javax.swing.JMenuItem TBackUp;
-    private javax.swing.JMenu ToolsMenu;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JButton btnBackUp;
+    private javax.swing.JButton btnFileScan;
+    private javax.swing.JButton btnRetrieve;
+    private javax.swing.JButton btnScan;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
