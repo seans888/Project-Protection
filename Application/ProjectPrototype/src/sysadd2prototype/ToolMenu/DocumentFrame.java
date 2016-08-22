@@ -44,7 +44,7 @@ public class DocumentFrame extends javax.swing.JInternalFrame {
         setResizable(true);
         setTitle("Documents");
 
-        sysadd2prototype.ToolMenu.DocTreeFile.setModel(new sysadd2prototype.ToolMenu.DocTreeFile(new File("C:\\Users\\Letty\\Desktop\\Sysadd1\\Status Reports")));
+        DocTreeFile.setModel(new DocTreeFile(new File("C:\\Users\\Letty\\Desktop\\Sysadd1\\Status Reports")));
         BUScroll.setViewportView(BUTreeFile);
 
         javax.swing.GroupLayout BUDisplayLayout = new javax.swing.GroupLayout(BUDisplay);

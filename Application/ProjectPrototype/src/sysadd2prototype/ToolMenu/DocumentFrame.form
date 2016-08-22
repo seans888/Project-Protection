@@ -51,7 +51,7 @@
       <SubComponents>
         <Component class="javax.swing.JTree" name="BUTreeFile">
           <AuxValues>
-            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="sysadd2prototype.ToolMenu.DocTreeFile.setModel(new sysadd2prototype.ToolMenu.DocTreeFile(new File(&quot;C:\\Users\\Letty\\Desktop\\Sysadd1\\Status Reports&quot;)));"/>
+            <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="DocTreeFile.setModel(new DocTreeFile(new File(&quot;C:\\Users\\Letty\\Desktop\\Sysadd1\\Status Reports&quot;)));"/>
           </AuxValues>
         </Component>
       </SubComponents>
