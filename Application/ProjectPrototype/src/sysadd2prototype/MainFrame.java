@@ -5,25 +5,35 @@
  */
 package sysadd2prototype;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import sysadd2prototype.ToolMenu.BackUpFrame;
-import sysadd2prototype.ToolMenu.DocTreeFile;
-import sysadd2prototype.ToolMenu.DocumentFrame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import sysadd2prototype.ToolMenu.BackUpPanel;
+import sysadd2prototype.ToolMenu.FileTreePanel;
 
 /**
  *
  * @author Letty
  */
 public class MainFrame extends javax.swing.JFrame {
-
+        GridBagLayout layout = new GridBagLayout();
+        BackUpPanel BUPanel;
+        FileTreePanel FTPanel;
     /**
      * Creates new form MainFrame
      */
     public MainFrame() {
         initComponents();
+        BUPanel = new BackUpPanel();
+        FTPanel = new FileTreePanel();
+        PanelChange.setLayout(layout);
+        GridBagConstraints cons = new GridBagConstraints ();
+        cons.gridx = 0;
+        cons.gridy=0;
+        PanelChange.add(BUPanel, cons);
+        PanelChange.add(FTPanel,cons);
+        BUPanel.setVisible(false);
+        FTPanel.setVisible(true);
+        
         setLocationRelativeTo(this);
     }
 
@@ -36,16 +46,14 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Desktop = new javax.swing.JDesktopPane();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        FileTree = new javax.swing.JTree();
-        btnBackUp = new javax.swing.JButton();
-        btnRetrieve = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         btnScan = new javax.swing.JButton();
         btnFileScan = new javax.swing.JButton();
+        btnBackUp = new javax.swing.JButton();
+        btnRetrieve = new javax.swing.JButton();
+        PanelChange = new javax.swing.JPanel();
         MenuBar = new javax.swing.JMenuBar();
         FileMenu = new javax.swing.JMenu();
-        FDocu = new javax.swing.JMenuItem();
         FExit = new javax.swing.JMenuItem();
         LogMenu = new javax.swing.JMenu();
         LView = new javax.swing.JMenuItem();
@@ -54,68 +62,50 @@ public class MainFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        DocTreeFile.setModel(new DocTreeFile(new File ("C:\\Users\\Letty\\Desktop\\Github\\Project-Protection")));
-        jScrollPane1.setViewportView(FileTree);
-
-        btnBackUp.setText("Back Up");
-
-        btnRetrieve.setText("Retrieve");
+        jPanel1.setBackground(new java.awt.Color(153, 204, 255));
+        jPanel1.setForeground(new java.awt.Color(255, 204, 153));
+        jPanel1.setLayout(null);
 
         btnScan.setText("Memory Scan");
-
-        btnFileScan.setText("File Scan");
-
-        Desktop.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Desktop.setLayer(btnBackUp, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Desktop.setLayer(btnRetrieve, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Desktop.setLayer(btnScan, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Desktop.setLayer(btnFileScan, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout DesktopLayout = new javax.swing.GroupLayout(Desktop);
-        Desktop.setLayout(DesktopLayout);
-        DesktopLayout.setHorizontalGroup(
-            DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DesktopLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnScan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnFileScan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnBackUp, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnRetrieve, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 392, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
-        );
-        DesktopLayout.setVerticalGroup(
-            DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(DesktopLayout.createSequentialGroup()
-                .addGroup(DesktopLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(DesktopLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(DesktopLayout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addComponent(btnScan)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnFileScan)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBackUp)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnRetrieve)))
-                .addContainerGap(24, Short.MAX_VALUE))
-        );
-
-        DesktopLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {btnBackUp, btnRetrieve});
-
-        FileMenu.setText("File");
-
-        FDocu.setText("Documents");
-        FDocu.addActionListener(new java.awt.event.ActionListener() {
+        btnScan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FDocuActionPerformed(evt);
+                btnScanActionPerformed(evt);
             }
         });
-        FileMenu.add(FDocu);
+        jPanel1.add(btnScan);
+        btnScan.setBounds(10, 70, 120, 23);
+
+        btnFileScan.setText("File Scan");
+        btnFileScan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFileScanActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnFileScan);
+        btnFileScan.setBounds(10, 100, 120, 23);
+
+        btnBackUp.setText("Back Up");
+        btnBackUp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackUpActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnBackUp);
+        btnBackUp.setBounds(10, 130, 120, 23);
+
+        btnRetrieve.setText("Retrieve");
+        btnRetrieve.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRetrieveActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnRetrieve);
+        btnRetrieve.setBounds(10, 160, 120, 23);
+
+        PanelChange.setForeground(new java.awt.Color(60, 63, 65));
+        PanelChange.setLayout(new java.awt.BorderLayout());
+
+        FileMenu.setText("File");
 
         FExit.setText("Exit");
         FExit.addActionListener(new java.awt.event.ActionListener() {
@@ -146,11 +136,15 @@ public class MainFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Desktop, javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(PanelChange, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Desktop)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+            .addComponent(PanelChange, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -160,11 +154,23 @@ public class MainFrame extends javax.swing.JFrame {
       System.exit(0);
     }//GEN-LAST:event_FExitActionPerformed
 
-    private void FDocuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FDocuActionPerformed
-        DocumentFrame docF = new DocumentFrame();
-        Desktop.add(docF);
-        docF.setVisible(true);
-    }//GEN-LAST:event_FDocuActionPerformed
+    private void btnRetrieveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetrieveActionPerformed
+        BUPanel.setVisible(false);
+        FTPanel.setVisible(true);      
+    }//GEN-LAST:event_btnRetrieveActionPerformed
+
+    private void btnBackUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackUpActionPerformed
+        BUPanel.setVisible(true);
+        FTPanel.setVisible(false);
+    }//GEN-LAST:event_btnBackUpActionPerformed
+
+    private void btnFileScanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileScanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnFileScanActionPerformed
+
+    private void btnScanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnScanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,19 +203,17 @@ public class MainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu AboutMenu;
-    private javax.swing.JDesktopPane Desktop;
-    private javax.swing.JMenuItem FDocu;
     private javax.swing.JMenuItem FExit;
     private javax.swing.JMenu FileMenu;
-    private javax.swing.JTree FileTree;
     private javax.swing.JMenuItem LDownload;
     private javax.swing.JMenuItem LView;
     private javax.swing.JMenu LogMenu;
     private javax.swing.JMenuBar MenuBar;
+    private javax.swing.JPanel PanelChange;
     private javax.swing.JButton btnBackUp;
     private javax.swing.JButton btnFileScan;
     private javax.swing.JButton btnRetrieve;
     private javax.swing.JButton btnScan;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
