@@ -7,8 +7,17 @@ package sysadd2prototype;
 
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.filechooser.FileSystemView;
+import javax.swing.tree.DefaultTreeModel;
 import sysadd2prototype.ToolMenu.BackUpPanel;
 import sysadd2prototype.ToolMenu.FileTreePanel;
+import sysadd2prototype.ToolMenu.MemoryCheckPanel;
+import sysadd2prototype.ToolMenu.ViewLogsPanel;
 
 /**
  *
@@ -18,6 +27,8 @@ public class MainFrame extends javax.swing.JFrame {
         GridBagLayout layout = new GridBagLayout();
         BackUpPanel BUPanel;
         FileTreePanel FTPanel;
+        MemoryCheckPanel MCPanel;
+        ViewLogsPanel VLPanel;
     /**
      * Creates new form MainFrame
      */
@@ -25,13 +36,19 @@ public class MainFrame extends javax.swing.JFrame {
         initComponents();
         BUPanel = new BackUpPanel();
         FTPanel = new FileTreePanel();
+        MCPanel = new MemoryCheckPanel();
+        VLPanel = new ViewLogsPanel();
         PanelChange.setLayout(layout);
         GridBagConstraints cons = new GridBagConstraints ();
-        cons.gridx = 0;
+        cons.gridx=0;
         cons.gridy=0;
         PanelChange.add(BUPanel, cons);
         PanelChange.add(FTPanel,cons);
+        PanelChange.add(MCPanel, cons);
+        PanelChange.add(VLPanel, cons);
         BUPanel.setVisible(false);
+        MCPanel.setVisible(false);
+        VLPanel.setVisible(false);
         FTPanel.setVisible(true);
         
         setLocationRelativeTo(this);
@@ -120,6 +137,11 @@ public class MainFrame extends javax.swing.JFrame {
         LogMenu.setText("Logs");
 
         LView.setText("View");
+        LView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LViewActionPerformed(evt);
+            }
+        });
         LogMenu.add(LView);
 
         LDownload.setText("Download");
@@ -156,12 +178,16 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnRetrieveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetrieveActionPerformed
         BUPanel.setVisible(false);
+        MCPanel.setVisible(false);
+        VLPanel.setVisible(false);
         FTPanel.setVisible(true);      
     }//GEN-LAST:event_btnRetrieveActionPerformed
 
     private void btnBackUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackUpActionPerformed
         BUPanel.setVisible(true);
         FTPanel.setVisible(false);
+        VLPanel.setVisible(false);
+        MCPanel.setVisible(false);
     }//GEN-LAST:event_btnBackUpActionPerformed
 
     private void btnFileScanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFileScanActionPerformed
@@ -169,8 +195,40 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnFileScanActionPerformed
 
     private void btnScanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScanActionPerformed
-        // TODO add your handling code here:
+        FileSystemView fsv = FileSystemView.getFileSystemView();
+        File file = new File("C:/");
+        int gb = 1024*1024*1024;  
+        double TotalSpace = (int) (file.getTotalSpace()/gb);
+        double UsableSpace = (int) (file.getUsableSpace()/gb);
+        double FreeSpace = (int) (file.getFreeSpace()/gb);
+        double percent = (int)((FreeSpace/TotalSpace)* 100);
+        BUPanel.setVisible(false);
+        FTPanel.setVisible(false);
+        VLPanel.setVisible(false);
+                MCPanel.MemCheckOutput.setText("Drive Letter: " + file + 
+                "\nType: " + fsv.getSystemTypeDescription(file) + 
+                "\nTotal space: " + TotalSpace + " GB" +
+                "\nUsed space: " + UsableSpace + " GB" +
+                "\nFree space: " + FreeSpace +  " GB" +
+                "\nPercent: " +  percent +  "%");
+                MCPanel.setVisible(true);   
+                FileWriter MemScanLogs = null;
+            try {
+                MemScanLogs = new FileWriter ("C:\\Users\\Letty\\Desktop\\SYSADD-Prototype\\Logs\\MemScanLogs.txt");
+                  MCPanel.MemCheckOutput.write(MemScanLogs);
+                  System.out.println("File Saved");
+            } catch (IOException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
     }//GEN-LAST:event_btnScanActionPerformed
+
+    private void LViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LViewActionPerformed
+        BUPanel.setVisible(false);
+        MCPanel.setVisible(false);
+        VLPanel.setVisible(true);
+        FTPanel.setVisible(false);
+    }//GEN-LAST:event_LViewActionPerformed
 
     /**
      * @param args the command line arguments

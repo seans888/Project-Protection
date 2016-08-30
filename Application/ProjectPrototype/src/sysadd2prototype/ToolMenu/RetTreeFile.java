@@ -24,16 +24,16 @@ import javax.swing.tree.TreePath;
  *
  * @author ProgrammingKnowledge
  */
-public class DocTreeFile implements TreeModel {
+public class RetTreeFile implements TreeModel {
 
-    static void setModel(DocTreeFile docTreeFile) {
+    static void setModel(RetTreeFile docTreeFile) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private final File root;
     private final Vector listeners = new Vector();
 
-    public DocTreeFile(File rootDirectory) {
+    public RetTreeFile(File rootDirectory) {
         root = rootDirectory;
     }
 
@@ -50,7 +50,7 @@ public class DocTreeFile implements TreeModel {
             System.out.println(children[j]);
         }       */
         
-        return new DocTreeFile.TreeFile(directory, children[index]);
+        return new RetTreeFile.TreeFile(directory, children[index]);
     }
 
     @Override

@@ -5,6 +5,7 @@
  */
 package sysadd2prototype.ToolMenu;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -14,7 +15,9 @@ import java.util.logging.Logger;
  * @author Letty
  */
 public class BackUpPanel extends javax.swing.JPanel {
-
+        Process process;
+        File file = null;
+        File file2 = new File("C:\\Users\\Letty\\Desktop\\Sysadd_Sample_Docs");
     /**
      * Creates new form BackUpPanel
      */
@@ -127,9 +130,10 @@ public class BackUpPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnWordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWordActionPerformed
-        Process process;
+      
         try {
             process = Runtime.getRuntime().exec("cmd.exe /C start WINWORD.EXE" );
+            file = File.createTempFile("Untitled", ".docx", file2);
         } catch (IOException ex) {
             Logger.getLogger(BackUpFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -137,45 +141,50 @@ public class BackUpPanel extends javax.swing.JPanel {
     }//GEN-LAST:event_btnWordActionPerformed
 
     private void btnNotepadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotepadActionPerformed
-        Process process;
+        
         try {
             process = Runtime.getRuntime().exec("cmd.exe /C start notepad.EXE" );
+            file = File.createTempFile("Untitled", ".txt", file2);
         } catch (IOException ex) {
             Logger.getLogger(BackUpFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnNotepadActionPerformed
 
     private void btnNotepad2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNotepad2ActionPerformed
-        Process process;
+       
         try {
             process = Runtime.getRuntime().exec("cmd.exe /C start notepad++.EXE" );
+            file = File.createTempFile("Untitled", ".ccp", file2);
         } catch (IOException ex) {
             Logger.getLogger(BackUpFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnNotepad2ActionPerformed
 
     private void btnExcelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExcelActionPerformed
-        Process process;
+       
         try {
             process = Runtime.getRuntime().exec("cmd.exe /C start EXCEL.EXE" );
+            file = File.createTempFile("Untitled", ".xlsx", file2);
         } catch (IOException ex) {
             Logger.getLogger(BackUpFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnExcelActionPerformed
 
     private void btnWordPadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnWordPadActionPerformed
-        Process process;
+       
         try {
             process = Runtime.getRuntime().exec("cmd.exe /C start wordpad.EXE" );
+            file = File.createTempFile("Untitled", ".rtf", file2);
         } catch (IOException ex) {
             Logger.getLogger(BackUpFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnWordPadActionPerformed
 
     private void btnPowerpntActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPowerpntActionPerformed
-        Process process;
+
         try {
             process = Runtime.getRuntime().exec("cmd.exe /C start POWERPNT.EXE" );
+            file = File.createTempFile("Untitled", ".pptx", file2);
         } catch (IOException ex) {
             Logger.getLogger(BackUpFrame.class.getName()).log(Level.SEVERE, null, ex);
         }

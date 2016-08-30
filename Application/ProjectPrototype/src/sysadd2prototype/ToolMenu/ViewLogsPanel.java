@@ -11,12 +11,12 @@ import java.io.File;
  *
  * @author Letty
  */
-public class FileTreePanel extends javax.swing.JPanel {
+public class ViewLogsPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form FileTreePanel
+     * Creates new form ViewLogsPanel
      */
-    public FileTreePanel() {
+    public ViewLogsPanel() {
         initComponents();
     }
 
@@ -30,27 +30,32 @@ public class FileTreePanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        FileTree = new javax.swing.JTree();
+        ViewLogsTree = new javax.swing.JTree();
 
-        FileTree.setModel(new RetTreeFile(new File ("C:\\Users\\Letty\\Desktop\\SYSADD-Prototype\\Sysadd_Sample_Docs")));
-        FileTree.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane1.setViewportView(FileTree);
+        ViewLogsTree.setModel(new RetTreeFile(new File ("C:\\Users\\Letty\\Desktop\\SYSADD-Prototype\\Logs")));
+        jScrollPane1.setViewportView(ViewLogsTree);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 412, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 310, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTree FileTree;
+    private javax.swing.JTree ViewLogsTree;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
