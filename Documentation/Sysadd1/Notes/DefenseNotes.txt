@@ -1,0 +1,7 @@
+Notes:
+
+RAID 1 and 0, 
+RAID 10
+Existing MS Word
+Github repository - Locking (Version Control)
+if an instances of the file is already open ,how can we back-up. 

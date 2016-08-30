@@ -1,0 +1,6 @@
+Drive Letter: C:\
+Type: Local Disk
+Total space: 455.0 GB
+Used space: 217.0 GB
+Free space: 217.0 GB
+Percent: 47.0%
