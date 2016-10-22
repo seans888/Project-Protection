@@ -10,6 +10,9 @@ import java.awt.GridBagLayout;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.filechooser.FileSystemView;
@@ -197,6 +200,8 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnScanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnScanActionPerformed
         FileSystemView fsv = FileSystemView.getFileSystemView();
         File file = new File("C:/");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
         int gb = 1024*1024*1024;  
         double TotalSpace = (int) (file.getTotalSpace()/gb);
         double UsableSpace = (int) (file.getUsableSpace()/gb);
@@ -210,11 +215,13 @@ public class MainFrame extends javax.swing.JFrame {
                 "\nTotal space: " + TotalSpace + " GB" +
                 "\nUsed space: " + UsableSpace + " GB" +
                 "\nFree space: " + FreeSpace +  " GB" +
-                "\nPercent: " +  percent +  "%");
+                "\nPercent: " +  percent +  "%" + 
+                "\nTimestamp: " + dateFormat.format(date));
+               
                 MCPanel.setVisible(true);   
                 FileWriter MemScanLogs = null;
             try {
-                MemScanLogs = new FileWriter ("C:\\Users\\Letty\\Desktop\\SYSADD-Prototype\\Logs\\MemScanLogs.txt");
+                MemScanLogs = new FileWriter ("C:\\Users\\Letty\\Desktop\\Prototype\\SampleLogs\\SampleLogs.txt");
                   MCPanel.MemCheckOutput.write(MemScanLogs);
                   System.out.println("File Saved");
             } catch (IOException ex) {
