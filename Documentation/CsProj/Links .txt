@@ -1,0 +1,6 @@
+MKLINK
+http://stackoverflow.com/questions/8573752/how-to-realize-mklink-h-hardlinking-in-java
+http://abeytom.blogspot.com/2012/11/create-symlinks-in-windows-7.html
+
+FIRST 3 WORDS
+http://stackoverflow.com/questions/26747517/trying-to-save-the-first-3-words-of-each-line-from-a-text-file-java
