@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="64.0" prefWidth="547.0" stylesheets="@../resources/SideNav.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SideNavController">
+   <children>
+      <ImageView fitHeight="55.0" fitWidth="67.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/logokent.png" />
+         </image>
+         <HBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </HBox.margin>
+      </ImageView>
+      <JFXButton fx:id="home" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#homeBtn" prefHeight="66.0" prefWidth="87.0" styleClass="\@" text="Home" />
+      <JFXButton fx:id="memStat" layoutX="103.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#memStatBtn" prefHeight="66.0" prefWidth="109.0" styleClass="\@" text="Memory Status" />
+      <JFXButton fx:id="fileScan" layoutX="216.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="65.0" prefWidth="90.0" styleClass="\@" text="File Scan" />
+      <JFXButton fx:id="backUp" layoutX="329.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#backUpBtn" prefHeight="65.0" prefWidth="97.0" styleClass="\@" text="Back-Up" />
+      <JFXButton fx:id="retrieve" layoutX="442.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#retrieveBtn" prefHeight="64.0" prefWidth="99.0" styleClass="\@" text="Retrieve" />
+   </children>
+</HBox>

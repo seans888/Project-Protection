@@ -8,6 +8,8 @@ package sysadd2prototype;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.DateFormat;
@@ -15,6 +17,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipOutputStream;
 import javax.swing.filechooser.FileSystemView;
 import javax.swing.tree.DefaultTreeModel;
 import sysadd2prototype.ToolMenu.BackUpPanel;
@@ -66,6 +70,8 @@ public class MainFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jList1 = new javax.swing.JList<>();
         jPanel1 = new javax.swing.JPanel();
         btnScan = new javax.swing.JButton();
         btnFileScan = new javax.swing.JButton();
@@ -79,6 +85,13 @@ public class MainFrame extends javax.swing.JFrame {
         LView = new javax.swing.JMenuItem();
         LDownload = new javax.swing.JMenuItem();
         AboutMenu = new javax.swing.JMenu();
+
+        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(jList1);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -148,6 +161,11 @@ public class MainFrame extends javax.swing.JFrame {
         LogMenu.add(LView);
 
         LDownload.setText("Download");
+        LDownload.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                LDownloadActionPerformed(evt);
+            }
+        });
         LogMenu.add(LDownload);
 
         MenuBar.add(LogMenu);
@@ -201,6 +219,7 @@ public class MainFrame extends javax.swing.JFrame {
         FileSystemView fsv = FileSystemView.getFileSystemView();
         File file = new File("C:/");
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        DateFormat dateFormatSave = new SimpleDateFormat("EEE_d_MMM_yyyy");
         Date date = new Date();
         int gb = 1024*1024*1024;  
         double TotalSpace = (int) (file.getTotalSpace()/gb);
@@ -221,7 +240,7 @@ public class MainFrame extends javax.swing.JFrame {
                 MCPanel.setVisible(true);   
                 FileWriter MemScanLogs = null;
             try {
-                MemScanLogs = new FileWriter ("C:\\Users\\Letty\\Desktop\\Prototype\\SampleLogs\\SampleLogs.txt");
+                MemScanLogs = new FileWriter ("C:\\Users\\Letty\\Desktop\\Prototype\\SampleLogs\\Logs " + dateFormatSave.format(date) + ".txt");
                   MCPanel.MemCheckOutput.write(MemScanLogs);
                   System.out.println("File Saved");
             } catch (IOException ex) {
@@ -236,6 +255,18 @@ public class MainFrame extends javax.swing.JFrame {
         VLPanel.setVisible(true);
         FTPanel.setVisible(false);
     }//GEN-LAST:event_LViewActionPerformed
+
+        @SuppressWarnings("empty-statement")
+    private void LDownloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LDownloadActionPerformed
+         DateFormat dateFormatSave = new SimpleDateFormat("EEE_d_MMM_yyyy");
+         Date date = new Date();    
+         File f = new File("C:\\Users\\Letty\\Desktop\\Prototype\\SampleLogs " + dateFormatSave.format(date) +".zip");
+             try (ZipOutputStream out = new ZipOutputStream(new FileOutputStream(f))) {
+                 System.out.println("File Saved");
+            } catch (IOException ex) {
+                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }//GEN-LAST:event_LDownloadActionPerformed
 
     /**
      * @param args the command line arguments
@@ -279,6 +310,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnFileScan;
     private javax.swing.JButton btnRetrieve;
     private javax.swing.JButton btnScan;
+    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

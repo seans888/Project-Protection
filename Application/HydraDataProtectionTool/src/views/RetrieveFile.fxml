@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane fx:id="RetrievePane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RetrieveFileController">
+   <children>
+      <TreeTableView fx:id="RetrieveFileTree" layoutX="16.0" layoutY="108.0" prefHeight="259.0" prefWidth="548.0">
+        <columns>
+          <TreeTableColumn fx:id="NameColumn" editable="false" prefWidth="185.0" text="Name" />
+          <TreeTableColumn fx:id="SizeColumn" editable="false" prefWidth="154.0" text="Size" />
+            <TreeTableColumn fx:id="DataColumn" editable="false" prefWidth="156.0" text="Last Modified" />
+        </columns>
+      </TreeTableView>
+   </children>
+</Pane>

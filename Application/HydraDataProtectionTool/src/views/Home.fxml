@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="327.0" prefWidth="524.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="308.0" fitWidth="244.0" layoutX="-6.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/logokent.png" />
+         </image>
+      </ImageView>
+      <JFXTextArea fx:id="HomeText" editable="false" layoutX="228.0" layoutY="113.0" maxWidth="308.0" minWidth="244.0" prefHeight="162.0" prefWidth="285.0" text="Hydra Data Potection Tool&#10;is a innovation tool that aims&#10;to protect your data from the&#10;effects of Data Corruption">
+         <font>
+            <Font name="Garamond" size="22.0" />
+         </font>
+      </JFXTextArea>
+   </children>
+</Pane>

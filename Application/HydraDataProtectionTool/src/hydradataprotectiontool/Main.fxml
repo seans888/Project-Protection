@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="417.0" prefWidth="575.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.MainController">
+   <children>
+      <MenuBar fx:id="MainMenuBar" layoutY="-1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="575.0" AnchorPane.bottomAnchor="390.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-1.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Logs">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Views" />
+              <MenuItem fx:id="LogsDownload" mnemonicParsing="false" onAction="#logsDownload" text="Download" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <JFXHamburger fx:id="navHamburger" layoutX="511.0" layoutY="362.0" prefHeight="41.0" prefWidth="50.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="511.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="362.0" />
+      <JFXDrawer fx:id="navDrawer" defaultDrawerSize="190.0" direction="TOP" layoutY="27.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="71.0" prefWidth="575.0" AnchorPane.bottomAnchor="319.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="27.0" />
+   </children>
+</AnchorPane>
