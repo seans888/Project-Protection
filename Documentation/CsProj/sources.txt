@@ -1,0 +1,26 @@
+	What Causes Corruption
+	http://www.makeuseof.com/tag/data-corruption-prevent/
+	
+	http://www.datarecovery.com.sg/data_recovery/data_corruption.htm
+	Data Corruption
+	
+	Data corruption and loss: causes and avoidance
+	http://www.thexlab.com/faqs/datacorruption.html
+	
+	Best Practices for Preventing Data Corruption
+	https://msdn.microsoft.com/en-us/library/ms181079(v=vs.80).aspx
+	
+	Continuous Data Backup. Acronis Nonstop Backup
+	http://www.acronis.com/en-gb/promo/Continuous-Backup/index.html
+	
+	Real-Time Backup, Synchronization and Replication
+	http://www.tgrmn.com/web/kb/item82.htm
+	
+	Continuous Data Protection
+	https://www.idrive.com/online-backup-cdp-faq
+	
+	if filename == ""	then
+		Don't change fileName
+	Else 
+		Change filename based on first word.+timeStamp+Day
+	
